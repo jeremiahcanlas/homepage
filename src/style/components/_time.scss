@@ -1,0 +1,11 @@
+.time-container {
+    z-index: 99;
+    position: absolute;
+    bottom:3rem;
+    left:3rem;
+    opacity: 0.4;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}

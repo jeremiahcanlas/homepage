@@ -8,21 +8,29 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
+    "develop": "env-cmd -f .env gatsby develop",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "axios": "^0.21.1",
+    "env-cmd": "^10.1.0",
+    "framer-motion": "^4.1.17",
     "gatsby": "^3.6.2",
     "gatsby-plugin-image": "^1.6.0",
+    "gatsby-plugin-react-helmet": "^4.6.0",
     "gatsby-plugin-sass": "^4.6.0",
     "gatsby-plugin-sharp": "^3.6.0",
     "gatsby-source-filesystem": "^3.6.0",
     "gatsby-transformer-sharp": "^3.6.0",
+    "gh-pages": "^3.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "react-reveal": "^1.2.2",
     "sass": "^1.34.1"
   }
 }
