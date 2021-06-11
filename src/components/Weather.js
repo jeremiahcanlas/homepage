@@ -20,7 +20,6 @@ const Weather = () => {
     &APPID=${process.env.GATSBY_KEY}&units=metric`)
     .then(res => {
         const data = res.data
-        console.log(data)
         setWeather({
             name:data.name,
             country:data.sys.country,
