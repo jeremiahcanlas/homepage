@@ -26,15 +26,15 @@ export default function Cover() {
     const images = query.allImageSharp.nodes
     const length = images.length
 
-    const randomizer = Math.floor(Math.random()*length)
-    const[current,setCurrent] = useState(randomizer)
+    // const randomizer = Math.floor(Math.random()*length)
+    const[current,setCurrent] = useState(Math.floor(Math.random()*length))
     
 
 
     useEffect(() => {
         const timer = setTimeout(() => {
             current === length -1?setCurrent(0):setCurrent(current+1)
-        },4000)
+        },240000)
 
         return () => clearTimeout(timer) //this will unmount the timer and wont mess up the timeout
     },[current,length])
