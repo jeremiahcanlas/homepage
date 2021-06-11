@@ -34,7 +34,7 @@ export default function Cover() {
     useEffect(() => {
         const timer = setTimeout(() => {
             current === length -1?setCurrent(0):setCurrent(current+1)
-        },240000)
+        },4000)
 
         return () => clearTimeout(timer) //this will unmount the timer and wont mess up the timeout
     },[current,length])
