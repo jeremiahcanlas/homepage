@@ -14,7 +14,6 @@ const IndexPage = () => {
         <title>Homepage by Jeremiah</title>
         <meta name="description" content="Personal Homepage" />
       </Helmet>
-
       <App/>
     </>
     

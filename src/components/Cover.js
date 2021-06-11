@@ -1,11 +1,11 @@
-import React,{useState,useEffect,Fragment} from 'react'
+import React,{useState,useEffect} from 'react'
 import { graphql,useStaticQuery } from 'gatsby';
-// import Fade from 'react-reveal/Fade'
 import {getImage,GatsbyImage} from 'gatsby-plugin-image';
 import {motion} from 'framer-motion'
 
 
 export default function Cover() {
+
 
 
     const query = useStaticQuery(graphql`
@@ -46,16 +46,17 @@ export default function Cover() {
             {images.map((img,index)=> {
 
                 const image = getImage(img)
-               return <div key={index+2}>
-                {current === index && (
-                    
-                    <motion.div  initial={{opacity:0}} animate={{opacity:1}}  transition={{duration:1}}>
-                        <div className='overlay'/>
+               
 
+                  return  current === index && 
+                    
+                    <motion.div  initial={{opacity:0}} animate={{opacity:1}}  key={index+3} transition={{duration:1}}>
+                        <div className='overlay'/>
                         <GatsbyImage image={image}  className='image' alt='none'/>
                     </motion.div>   
-                )}
-                </div>
+                
+
+               
             }
             )} 
         </div>

@@ -17,5 +17,8 @@ module.exports = {
       __key: "images",
     }
   ],
-  pathPrefix:'/homepage'
+  pathPrefix:'/home',
+  // flags: {
+  //   DEV_SSR: false,
+  // }
 };

@@ -1,0 +1,23 @@
+.weather-container {
+    position: absolute;
+    right: 3rem;
+    top: 2rem;
+    z-index: 999;
+    align-items: center;
+    text-align: right;
+
+
+    h2 {
+        font-size: 3rem;
+        margin:0;
+    }
+
+    p{
+        margin:0.5rem;
+    }
+
+    section {
+        display: flex;
+        flex-direction: row;
+    }
+}

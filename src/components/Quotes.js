@@ -2,8 +2,11 @@ import React,{useEffect,useState} from 'react';
 import axios from 'axios'
 import {motion} from 'framer-motion' 
 
+
 const Quotes = () => {
     const [quote,setQuote] = useState('')
+
+
 
     useEffect(() => {
         getQuote()
@@ -32,11 +35,13 @@ const Quotes = () => {
     })
 
 
+
+
     return (   
         <motion.div
          className='quote-container'
          initial={{x:30,opacity:0}}
-         animate={{x:0,opacity:1}}
+         animate={{x:0,opacity:0.6}}
          transition={{duration:2}}
         >
             <h2 >{quote.quote}</h2>
