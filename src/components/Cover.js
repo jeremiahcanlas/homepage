@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { graphql,useStaticQuery } from 'gatsby';
 import {getImage,GatsbyImage} from 'gatsby-plugin-image';
-import {motion} from 'framer-motion'
+import {motion,AnimatePresence} from 'framer-motion'
 
 
 export default function Cover() {
@@ -34,7 +34,7 @@ export default function Cover() {
     useEffect(() => {
         const timer = setTimeout(() => {
             current === length -1?setCurrent(0):setCurrent(current+1)
-        },240000)
+        },30000)
 
         return () => clearTimeout(timer) //this will unmount the timer and wont mess up the timeout
     },[current,length])
@@ -42,7 +42,7 @@ export default function Cover() {
 
     return (
         <div className='cover'>
-
+            <AnimatePresence >
             {images.map((img,index)=> {
 
                 const image = getImage(img)
@@ -50,15 +50,15 @@ export default function Cover() {
 
                   return  current === index && 
                     
-                    <motion.div  initial={{opacity:0}} animate={{opacity:1}}  key={index+3} transition={{duration:1}}>
-                        <div className='overlay'/>
-                        <GatsbyImage image={image}  className='image' alt='none'/>
-                    </motion.div>   
-                
-
-               
+                        <motion.div  initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}  key={index+3} transition={{duration:1.5}}>
+                            <div className='overlay'/>
+                            <GatsbyImage image={image}  className='image' alt='none'/>
+                        </motion.div>   
+                    
             }
             )} 
+
+            </AnimatePresence>
         </div>
     )
 }

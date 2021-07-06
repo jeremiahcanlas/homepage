@@ -1,8 +1,16 @@
-.quote-container{
-    position: absolute;
-    width: 35%;
-    right:3rem;
-    bottom:4rem;
-    text-align: right;
-    z-index: 99;
+.quote-container {
+  position: absolute;
+  width: fit-content;
+  right: 3rem;
+  bottom: 4rem;
+  text-align: right;
+  z-index: 99;
+
+  @include respond(phone) {
+    left: 1rem;
+    right: unset;
+    bottom: 2rem;
+    width: 75%;
+    text-align: left;
+  }
 }
