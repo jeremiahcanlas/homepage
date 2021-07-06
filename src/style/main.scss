@@ -6,7 +6,6 @@
 //typography
 @import './vars/typography';
 
-
 //main homepage
 @import './components/home';
 @import './components//cover';
@@ -15,18 +14,14 @@
 @import './components//quote';
 @import './components/weather';
 
-
 body {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 // .app{
 //   z-index: 99999;
 // }
-
-
-
-
-

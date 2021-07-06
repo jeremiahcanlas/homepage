@@ -10,7 +10,7 @@
 
   @include respond(phone) {
     right: 0.5rem;
-    top: 1rem;
+    top: 0.5rem;
     opacity: 1;
   }
 
@@ -22,12 +22,16 @@
     display: flex;
     flex-direction: row;
 
+    @include respond(phone) {
+      justify-content: flex-end;
+    }
+
     .temperature {
       font-size: 3rem;
       margin: 0;
 
       @include respond(phone) {
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
     }
 
