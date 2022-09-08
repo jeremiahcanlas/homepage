@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import _ from "lodash";
 
 const Greeting = () => {
   const [greet, setGreet] = useState("");
@@ -6,6 +7,8 @@ const Greeting = () => {
   useEffect(() => {
     greeting();
   }, []);
+
+  const name = ` ${window.sessionStorage.getItem("name") || ""}`;
 
   //sets the greeting depends on the 24 hr clock
   const greeting = () => {
@@ -22,7 +25,11 @@ const Greeting = () => {
 
   return (
     <div>
-      <span>{greet.toUpperCase()}, JEREMIAH</span>
+      <span>
+        {greet.toUpperCase()}
+        {window.sessionStorage.getItem("name") === "" ? "" : ","}
+        {_.toUpper(name)}
+      </span>
     </div>
   );
 };

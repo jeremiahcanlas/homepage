@@ -12,6 +12,7 @@ const IndexPage = () => {
         <html lang="en" />
         <title>Homepage by Jeremiah</title>
         <meta name="description" content="Personal Homepage" />
+        {/* allows weather but somewhat insecure */}
         <meta
           http-equiv="Content-Security-Policy"
           content="upgrade-insecure-requests"
