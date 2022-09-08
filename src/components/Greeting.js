@@ -30,7 +30,7 @@ const Greeting = () => {
     <div>
       <span>
         {greet.toUpperCase()}
-        {window.sessionStorage.getItem("name") === "" ? "" : ","}
+        {isBrowser() && window.sessionStorage.getItem("name") === "" ? "" : ","}
         {_.toUpper(name)}
       </span>
     </div>
