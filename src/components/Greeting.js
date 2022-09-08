@@ -3,12 +3,15 @@ import _ from "lodash";
 
 const Greeting = () => {
   const [greet, setGreet] = useState("");
+  const isBrowser = () => typeof window !== "undefined";
 
   useEffect(() => {
     greeting();
   }, []);
 
-  const name = ` ${window.sessionStorage.getItem("name") || ""}`;
+  const name = ` ${
+    (isBrowser() && window.sessionStorage.getItem("name")) || ""
+  }`;
 
   //sets the greeting depends on the 24 hr clock
   const greeting = () => {

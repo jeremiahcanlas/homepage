@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 const Settings = () => {
+  const isBrowser = () => typeof window !== "undefined";
   const [modal, showModal] = useState(false);
   const [name, setName] = useState(
-    !window.sessionStorage.getItem("name")
-      ? ""
-      : window.sessionStorage.getItem("name")
+    window.sessionStorage.getItem("name") && isBrowser()
+      ? window.sessionStorage.getItem("name")
+      : ""
   );
 
   console.log(name);
@@ -13,7 +14,7 @@ const Settings = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (window.sessionStorage.getItem("name") !== name) {
-      window.sessionStorage.setItem("name", name);
+      isBrowser() && window.sessionStorage.setItem("name", name);
       reloadPage();
     } else {
       showModal(false);
