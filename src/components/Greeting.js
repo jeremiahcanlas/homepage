@@ -9,9 +9,7 @@ const Greeting = () => {
     greeting();
   }, []);
 
-  const name = ` ${
-    (isBrowser() && window.sessionStorage.getItem("name")) || ""
-  }`;
+  const name = ` ${window.localStorage.getItem("name") || ""}`;
 
   //sets the greeting depends on the 24 hr clock
   const greeting = () => {
@@ -30,7 +28,7 @@ const Greeting = () => {
     <div>
       <span>
         {greet.toUpperCase()}
-        {isBrowser() && window.sessionStorage.getItem("name") === "" ? "" : ","}
+        {isBrowser() && window.localStorage.getItem("name") === "" ? "" : ","}
         {_.toUpper(name)}
       </span>
     </div>

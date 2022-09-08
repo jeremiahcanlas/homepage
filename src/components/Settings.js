@@ -4,8 +4,8 @@ const Settings = () => {
   const isBrowser = () => typeof window !== "undefined";
   const [modal, showModal] = useState(false);
   const [name, setName] = useState(
-    isBrowser() && window.sessionStorage.getItem("name") && isBrowser()
-      ? isBrowser() && window.sessionStorage.getItem("name")
+    isBrowser() && window.localStorage.getItem("name") && isBrowser()
+      ? isBrowser() && window.localStorage.getItem("name")
       : ""
   );
 
@@ -13,8 +13,8 @@ const Settings = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (window.sessionStorage.getItem("name") !== name) {
-      isBrowser() && window.sessionStorage.setItem("name", name);
+    if (window.localStorage.getItem("name") !== name) {
+      isBrowser() && window.localStorage.setItem("name", name);
       reloadPage();
     } else {
       showModal(false);
@@ -28,9 +28,9 @@ const Settings = () => {
   const closeModal = () => {
     showModal(false);
     setName(
-      isBrowser() && !window.sessionStorage.getItem("name")
+      isBrowser() && !window.localStorage.getItem("name")
         ? ""
-        : isBrowser() && window.sessionStorage.getItem("name")
+        : isBrowser() && window.localStorage.getItem("name")
     );
   };
 
