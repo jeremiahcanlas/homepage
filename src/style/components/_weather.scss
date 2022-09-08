@@ -21,6 +21,8 @@
   section {
     display: flex;
     flex-direction: row;
+    justify-content: end;
+    margin-right: 1em;
 
     @include respond(phone) {
       justify-content: flex-end;
@@ -61,4 +63,16 @@
       display: none;
     }
   }
+}
+
+.enable-location {
+  color: white;
+  position: absolute;
+  right: 3rem;
+  top: 2rem;
+  z-index: 999;
+  align-items: center;
+  text-align: right;
+  height: fit-content;
+  width: fit-content;
 }
