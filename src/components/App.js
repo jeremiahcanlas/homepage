@@ -8,12 +8,13 @@ import Quotes from "./Quotes";
 import Weather from "./Weather";
 
 export default function App() {
+  const isBrowser = () => typeof window !== "undefined";
   return (
     <div className="app">
-      <Search />
+      {isBrowser() && <Search />}
       <Weather />
       <Quotes />
-      <DateTimeContainer />
+      {isBrowser() && <DateTimeContainer />}
       <Settings />
       <Cover />
     </div>
