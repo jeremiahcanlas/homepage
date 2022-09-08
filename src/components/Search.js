@@ -2,9 +2,12 @@ import React, { useState } from "react";
 
 const Search = () => {
   const [keyword, setKeyword] = useState("");
+  const isBrowser = () => typeof window !== "undefined";
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.location.href = `https://google.com/search?q=${keyword}`;
+    isBrowser() &&
+      window.location.replace(`https://google.com/search?q=${keyword}`);
   };
 
   return (
