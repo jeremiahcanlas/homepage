@@ -4,8 +4,8 @@ const Settings = () => {
   const isBrowser = () => typeof window !== "undefined";
   const [modal, showModal] = useState(false);
   const [name, setName] = useState(
-    window.sessionStorage.getItem("name") && isBrowser()
-      ? window.sessionStorage.getItem("name")
+    isBrowser() && window.sessionStorage.getItem("name") && isBrowser()
+      ? isBrowser() && window.sessionStorage.getItem("name")
       : ""
   );
 
@@ -28,9 +28,9 @@ const Settings = () => {
   const closeModal = () => {
     showModal(false);
     setName(
-      !window.sessionStorage.getItem("name")
+      isBrowser() && !window.sessionStorage.getItem("name")
         ? ""
-        : window.sessionStorage.getItem("name")
+        : isBrowser() && window.sessionStorage.getItem("name")
     );
   };
 
