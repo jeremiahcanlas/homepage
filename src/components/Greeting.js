@@ -3,12 +3,13 @@ import _ from "lodash";
 
 const Greeting = () => {
   const [greet, setGreet] = useState("");
+  const isBrowser = () => typeof window !== "undefined";
 
   useEffect(() => {
     greeting();
   }, []);
 
-  const name = ` ${window.localStorage.getItem("name") || ""}`;
+  const name = ` ${(isBrowser() && window.localStorage.getItem("name")) || ""}`;
 
   //sets the greeting depends on the 24 hr clock
   const greeting = () => {
@@ -27,7 +28,7 @@ const Greeting = () => {
     <div>
       <span>
         {greet.toUpperCase()}
-        {window.localStorage.getItem("name") === "" ? "" : ","}
+        {isBrowser() && window.localStorage.getItem("name") === "" ? "" : ","}
         {_.toUpper(name)}
       </span>
     </div>
