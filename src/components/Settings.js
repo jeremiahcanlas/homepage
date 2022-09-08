@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 const Settings = () => {
-  const isBrowser = () => typeof window !== "undefined";
   const [modal, showModal] = useState(false);
   const [name, setName] = useState(
-    isBrowser() && window.localStorage.getItem("name") && isBrowser()
-      ? isBrowser() && window.localStorage.getItem("name")
+    window.localStorage.getItem("name")
+      ? window.localStorage.getItem("name")
       : ""
   );
 
@@ -14,7 +13,7 @@ const Settings = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (window.localStorage.getItem("name") !== name) {
-      isBrowser() && window.localStorage.setItem("name", name);
+      window.localStorage.setItem("name", name);
       reloadPage();
     } else {
       showModal(false);
@@ -28,9 +27,9 @@ const Settings = () => {
   const closeModal = () => {
     showModal(false);
     setName(
-      isBrowser() && !window.localStorage.getItem("name")
+      !window.localStorage.getItem("name")
         ? ""
-        : isBrowser() && window.localStorage.getItem("name")
+        : window.localStorage.getItem("name")
     );
   };
 

@@ -3,7 +3,6 @@ import _ from "lodash";
 
 const Greeting = () => {
   const [greet, setGreet] = useState("");
-  const isBrowser = () => typeof window !== "undefined";
 
   useEffect(() => {
     greeting();
@@ -28,7 +27,7 @@ const Greeting = () => {
     <div>
       <span>
         {greet.toUpperCase()}
-        {isBrowser() && window.localStorage.getItem("name") === "" ? "" : ","}
+        {window.localStorage.getItem("name") === "" ? "" : ","}
         {_.toUpper(name)}
       </span>
     </div>
