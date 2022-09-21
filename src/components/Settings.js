@@ -3,18 +3,20 @@ import React, { useState, useEffect } from "react";
 const Settings = () => {
   const isBrowser = () => typeof window !== "undefined";
   const [modal, showModal] = useState(false);
-  const [name, setName] = useState(
-    isBrowser() && window.localStorage.getItem("name") && isBrowser()
-      ? isBrowser() && window.localStorage.getItem("name")
-      : ""
-  );
+  const [form, setForm] = useState({
+    firstName:
+      isBrowser() && window.localStorage.getItem("name") && isBrowser()
+        ? isBrowser() && window.localStorage.getItem("name")
+        : "",
+    duration: 1,
+  });
 
-  console.log(name);
+  console.log(form);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (window.localStorage.getItem("name") !== name) {
-      isBrowser() && window.localStorage.setItem("name", name);
+    if (window.localStorage.getItem("name") !== form.name) {
+      isBrowser() && window.localStorage.setItem("name", form.name);
       reloadPage();
     } else {
       showModal(false);
@@ -27,11 +29,13 @@ const Settings = () => {
 
   const closeModal = () => {
     showModal(false);
-    setName(
-      isBrowser() && !window.localStorage.getItem("name")
-        ? ""
-        : isBrowser() && window.localStorage.getItem("name")
-    );
+    setForm({
+      ...form,
+      firstName:
+        isBrowser() && !window.localStorage.getItem("name")
+          ? ""
+          : isBrowser() && window.localStorage.getItem("name"),
+    });
   };
 
   return (
@@ -50,7 +54,6 @@ const Settings = () => {
             backgroundColor: "rgba(0,0,0,0.9)",
             height: "100vh",
             width: "100vw",
-
             zIndex: 999,
           }}
         >
@@ -97,8 +100,20 @@ const Settings = () => {
                   Name:{" "}
                   <input
                     type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    value={form.firstName}
+                    onChange={(e) =>
+                      setForm({ ...form, firstName: e.target.value })
+                    }
+                  />
+                </label>
+                <label>
+                  background duration:{" "}
+                  <input
+                    type="number"
+                    value={form.duration}
+                    onChange={(e) =>
+                      setForm({ ...form, duration: e.target.value })
+                    }
                   />
                 </label>
                 <button

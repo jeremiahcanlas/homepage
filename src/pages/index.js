@@ -5,12 +5,19 @@ import App from "../components/App";
 
 // markup
 const IndexPage = () => {
+  const isBrowser = () => typeof window !== "undefined";
+  const name = ` ${(isBrowser() && window.localStorage.getItem("name")) || ""}`;
   return (
     <>
       <Helmet>
         <meta charSet="utf-8" />
         <html lang="en" />
-        <title>Homepage by Jeremiah</title>
+        <title>
+          Homepage by{" "}
+          {isBrowser() && window.localStorage.getItem("name") === ""
+            ? ""
+            : name}
+        </title>
         <meta name="description" content="Personal Homepage" />
         {/* allows weather but somewhat insecure */}
         <meta

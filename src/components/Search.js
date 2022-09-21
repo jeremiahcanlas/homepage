@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import _ from "lodash";
+import { motion, AnimatePresence } from "framer-motion";
 const Search = () => {
   const [keyword, setKeyword] = useState("");
   const isBrowser = () => typeof window !== "undefined";
@@ -31,9 +32,8 @@ const Search = () => {
           margin: "auto 1em",
           justifyContent: "center",
           alignContent: "center",
-
           height: "5%",
-          width: "70%",
+          width: "50%",
         }}
       >
         <form onSubmit={(e) => handleSubmit(e)}>
@@ -44,10 +44,11 @@ const Search = () => {
               fontSize: "2em",
               color: "white",
               width: "100%",
-              height: "80px",
+              height: "60px",
               borderRadius: "5px",
               border: "1px solid white",
             }}
+            placeholder="search google"
             type="text"
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
@@ -56,6 +57,27 @@ const Search = () => {
           <button style={{ display: "none" }} type="submit">
             Submit
           </button>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "end",
+              height: "3em",
+            }}
+          >
+            <AnimatePresence>
+              {!_.isEmpty(keyword) && (
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                  style={{ color: "white" }}
+                >
+                  press enter
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
         </form>
       </div>
     </div>
