@@ -8,15 +8,22 @@ const Settings = () => {
       isBrowser() && window.localStorage.getItem("name") && isBrowser()
         ? isBrowser() && window.localStorage.getItem("name")
         : "",
-    duration: 1,
+    duration:
+      isBrowser() && window.localStorage.getItem("duration") && isBrowser()
+        ? isBrowser() && window.localStorage.getItem("duration")
+        : "",
   });
 
   console.log(form);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (window.localStorage.getItem("name") !== form.name) {
-      isBrowser() && window.localStorage.setItem("name", form.name);
+    if (
+      window.localStorage.getItem("name") !== form.firstName ||
+      window.localStorage.getItem("duration") !== form.duration
+    ) {
+      isBrowser() && window.localStorage.setItem("name", form.firstName);
+      isBrowser() && window.localStorage.setItem("duration", form.duration);
       reloadPage();
     } else {
       showModal(false);
@@ -41,8 +48,8 @@ const Settings = () => {
   return (
     <div>
       <button
-        style={{ position: "absolute", left: "3em", top: "3em", zIndex: 99 }}
         onClick={() => showModal(!modal)}
+        className="settings-container-btn"
       >
         settings
       </button>
@@ -107,7 +114,7 @@ const Settings = () => {
                   />
                 </label>
                 <label>
-                  background duration:{" "}
+                  Wallpaper duration:{" "}
                   <input
                     type="number"
                     value={form.duration}

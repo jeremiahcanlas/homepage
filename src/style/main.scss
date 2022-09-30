@@ -1,18 +1,19 @@
 //colors
-@import './vars/colors';
+@import "./vars/colors";
 //viewports
-@import './vars/viewports';
-@import './vars/helpers';
+@import "./vars/viewports";
+@import "./vars/helpers";
 //typography
-@import './vars/typography';
+@import "./vars/typography";
 
 //main homepage
-@import './components/home';
-@import './components//cover';
-@import './components/time';
-@import './components/greet';
-@import './components//quote';
-@import './components/weather';
+@import "./components/home";
+@import "./components/cover";
+@import "./components/time";
+@import "./components/greet";
+@import "./components//quote";
+@import "./components/weather";
+@import "./components/settings";
 
 body {
   margin: 0;

@@ -1,0 +1,13 @@
+.settings-container-btn {
+  position: absolute;
+  left: 3em;
+  top: 3em;
+  z-index: 99;
+
+  @include respond(phone) {
+    bottom: 3em;
+    right: 3em;
+    top: unset;
+    left: unset;
+  }
+}
