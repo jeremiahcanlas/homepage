@@ -1,26 +1,19 @@
 .cover {
-    display: flex;
-    flex-direction: row;
-    // position: absolute;
+  display: flex;
+  flex-direction: row;
+  // position: absolute;
 
-    .overlay{
-        position: absolute;
-        height: 100vh;
-        width: 100%;
-        background:linear-gradient(0deg,rgba(0,0,0,0.9),rgba(0,0,0,0.4));
-    }
+  .overlay {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
+  }
 
-    .image {
-        z-index: -99;
-        position:absolute;
-        width: 100%;
-        height: 100vh;
-    }
-
-    
-
-
-
- 
-  
+  .image {
+    z-index: -99;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+  }
 }
