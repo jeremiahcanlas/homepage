@@ -9,11 +9,13 @@ import Weather from "./Weather";
 export default function App() {
   return (
     <div className="app">
-      <Search />
-      <Weather />
-      <Quotes />
-      <DateTimeContainer />
-      <Settings />
+      <div className="item-container">
+        <Search />
+        <Weather />
+        <Quotes />
+        <DateTimeContainer />
+        <Settings />
+      </div>
       <Cover />
     </div>
   );

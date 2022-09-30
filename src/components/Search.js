@@ -44,11 +44,11 @@ const Search = () => {
               fontSize: "2em",
               color: "white",
               width: "100%",
-              height: "60px",
+              height: "50px",
               borderRadius: "5px",
               border: "1px solid white",
             }}
-            placeholder="search google"
+            // placeholder="search google"
             type="text"
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}

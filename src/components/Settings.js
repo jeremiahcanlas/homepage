@@ -59,7 +59,7 @@ const Settings = () => {
             color: "white",
             position: "absolute",
             backgroundColor: "rgba(0,0,0,0.9)",
-            height: "100vh",
+            height: "100%",
             width: "100vw",
             zIndex: 999,
           }}
