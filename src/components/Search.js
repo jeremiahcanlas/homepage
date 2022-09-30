@@ -52,7 +52,6 @@ const Search = () => {
             type="text"
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
-            autoFocus
           />
           <button style={{ display: "none" }} type="submit">
             Submit
