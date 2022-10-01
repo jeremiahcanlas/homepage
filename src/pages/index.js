@@ -25,7 +25,9 @@ const IndexPage = () => {
           content="upgrade-insecure-requests"
         />
       </Helmet>
-      <App />
+      <div>
+        <App />
+      </div>
     </>
   );
 };

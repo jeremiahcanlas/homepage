@@ -5,7 +5,7 @@
 
   .item-container {
     height: 100%;
-    min-width: 100%;
+    width: 100%;
     position: absolute;
 
     @include respond(phone) {
